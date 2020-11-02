@@ -1,0 +1,16 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace SegundoParcial_JoseLuis.BLL
+{
+    public class Utilidades
+    {
+        public static int ToInt(string valor)
+        {
+            int retorno = 0;
+            int.TryParse(valor, out retorno);
+            return retorno;
+        }
+    }
+}

@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using RaldyP2Apli.UI.Registros;
+using RaldyP2Apli.UI.Consultas;
 
 namespace RaldyP2Apli
 {
@@ -24,5 +26,7 @@ namespace RaldyP2Apli
         {
             InitializeComponent();
         }
+
+        
     }
 }

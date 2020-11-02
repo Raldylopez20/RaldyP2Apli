@@ -50,6 +50,6 @@
                     </StackPanel>
                 </GroupBox>               
             </StackPanel>
-
+            
     </Grid>
 </Window>
