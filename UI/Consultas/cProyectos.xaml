@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RaldyP2Apli.UI.Consultas"
         mc:Ignorable="d"
-        Title="Registro de Consultas" Height="450" Width="800">
-    <Grid>
+        Title="Registro de Consultas" Height="464" Width="797">
+    <Grid Margin="0,0,63,11">
 
-        <StackPanel Orientation="Vertical" Margin="0,5,0,0" HorizontalAlignment="Center">
+        <StackPanel Orientation="Vertical" Margin="95,5,0,0" HorizontalAlignment="Left">
 
             <StackPanel Orientation="Horizontal" Height="60">
-                
+
 
                 <StackPanel Margin="0,0,20,0" >
                     <Label Content="Filtro:" />
@@ -29,14 +29,14 @@
 
                 <Button x:Name="BuscarButton" Height="30" Width="100" Click="ConsultarButton_Click" Margin="30,0,0,0" >
                     <StackPanel Orientation="Horizontal" >
-                        <Image Source="/Imagenes/buscar.png" Width="25"  />
+                        <Image Source="/imagenes/buscar.png" Width="25"  />
                         <Label Content="Consultar" />
                     </StackPanel>
                 </Button>
 
             </StackPanel>
             <StackPanel HorizontalAlignment="Left" >
-                <DataGrid x:Name="DatosDataGrid" IsReadOnly="True" AutoGenerateColumns="False" AlternatingRowBackground="Gainsboro" TextBlock.TextAlignment="Center" Height="350" Width="605">
+                <DataGrid x:Name="DatosDataGrid" IsReadOnly="True" AutoGenerateColumns="False" AlternatingRowBackground="Gainsboro" TextBlock.TextAlignment="Center" Height="340" Width="605">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Proyecto Id" Binding="{Binding ProyectoId}"/>
                         <DataGridTextColumn Header="Fecha" Binding="{Binding Fecha, StringFormat='dd/MM/yyyy'}"/>

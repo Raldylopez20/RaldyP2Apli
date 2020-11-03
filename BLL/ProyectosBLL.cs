@@ -34,7 +34,7 @@ namespace RaldyP2Apli.BLL
             {
                 foreach (var item in proyectos.Detalle)
                 {
-                    contexto.Entry(item.TareaId).State = EntityState.Modified;
+                    contexto.Entry(item.Tipo).State = EntityState.Modified;
                 }
 
                 contexto.Proyectos.Add(proyectos);
@@ -158,7 +158,7 @@ namespace RaldyP2Apli.BLL
                 proyectos = contexto.Proyectos
                     .Where(p => p.ProyectoId == id)
                     .Include(p => p.Detalle)
-                    .ThenInclude(t => t.TareaId)
+                    .ThenInclude(t => t.Tipo)
                     .SingleOrDefault();
             }
             catch (Exception)

@@ -23,9 +23,9 @@ namespace RaldyP2Apli.UI.Registros
             this.DataContext = proyectos;
 
             //****************ComboBox de Tipotarea
-            TareaIdComboBox.ItemsSource = TareasBLL.GetList(s => true);
-            TareaIdComboBox.SelectedValuePath = "TareaId";
-            TareaIdComboBox.DisplayMemberPath = "TipoTarea";
+            TipoTareaComboBox.ItemsSource = TareasBLL.GetList(s => true);
+            TipoTareaComboBox.SelectedValuePath = "TareaId";
+            TipoTareaComboBox.DisplayMemberPath = "TipoTarea";
            
         }
         // ****************Funcion Cagar
@@ -44,10 +44,15 @@ namespace RaldyP2Apli.UI.Registros
         private bool Validar()
         {
             bool esValidado = true;
-            if (ProyectoIdTextBox.Text.Length == 0)
+            if (DescripcionTextBox.Text.Length == 0)
             {
                 esValidado = false;
                 MessageBox.Show("Transaccion Fallida", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+
+            if(DescripcionTextBox.Text.Trim() == String.Empty){
+                    MessageBox.Show("No puede dejar el campo Descripcion vacio", "Error", MessageBoxButton.OK , MessageBoxImage.Error);
+                   
             }
 
             return esValidado;
@@ -107,6 +112,49 @@ namespace RaldyP2Apli.UI.Registros
             }
         }
 
+         //**********************Boton de Agregar Fila
+        private void AgregarFilaButton_Click(object sender, RoutedEventArgs e)
+        {
+            var filaDetalle = new ProyectosDetalle
+            {
+                ProyectoId = this.proyectos.ProyectoId,
+                TareaId = Convert.ToInt32(TipoTareaComboBox.SelectedValue.ToString()),
+                Tipo = ((Tareas)TipoTareaComboBox.SelectedItem),
+                Requerimiento = (RequerimientoTextBox.Text),
+                Tiempo = Convert.ToSingle(TiempoTextBox.Text)
+            };
+            
+            proyectos.TiempoTotal += Convert.ToDouble(TiempoTextBox.Text.ToString());
+            
+            this.proyectos.Detalle.Add(filaDetalle);
+            Cargar();
+
+            TipoTareaComboBox.SelectedIndex = -1;
+            RequerimientoTextBox.Clear();
+            TiempoTextBox.Clear();
+        }
+        //**********************Boton de Eliminar Fila
+
+        private void EliminarFilaButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+
+            {
+                var detalle = (ProyectosDetalle)DetalleDataGrid.SelectedItem;
+                double total = Convert.ToDouble(TiempoTotalTextBox.Text);
+                if (DetalleDataGrid.Items.Count >= 1 && DetalleDataGrid.SelectedIndex <= DetalleDataGrid.Items.Count - 1)
+                {
+                    proyectos.TiempoTotal = proyectos.TiempoTotal - detalle.Tiempo;
+                    proyectos.Detalle.RemoveAt(DetalleDataGrid.SelectedIndex);
+                   
+                    Cargar();
+                }
+            }
+            catch
+            {
+                MessageBox.Show("No has seleccionado ninguna Fila\n\nSeleccione la Fila a Remover.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
         
     }
 }

@@ -13,7 +13,7 @@ namespace RaldyP2Apli.Entidades
 
         public int ProyectoId {get; set;}
 
-        public DateTime Fecha { get; set; }
+        public DateTime Fecha { get; set; } = DateTime.Now;
         public string Descripcion { get; set; }
         public double TiempoTotal { get; set; }
 

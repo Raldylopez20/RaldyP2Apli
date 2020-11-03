@@ -1,5 +1,5 @@
 ﻿RaldyP2Apli
-
+1.0.0.0
 
 winexe
 C#
@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
 C:\Users\pc\Desktop\RaldyP2Apli\App.xaml
-32004191540
-5-927912587
-15-1101582292
-216-1126440731
+3-618633838
+5158742247
+17-76177205
+2161194439404
 MainWindow.xaml;UI\Consultas\cProyectos.xaml;UI\Registros\rProyectos.xaml;
 
-False
+True
 

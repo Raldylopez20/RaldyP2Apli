@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\pc\Desktop\RaldyP2Apli\obj\Debug\netcoreapp3.1\
+C:\Users\pc\Desktop\RaldyP2Apli\obj\Release\netcoreapp3.1\
 RaldyP2Apli
 none
 false
-TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
+TRACE;RELEASE;NETCOREAPP;NETCOREAPP3_1
 C:\Users\pc\Desktop\RaldyP2Apli\App.xaml
-32004191540
-5-927912587
-15-1101582292
-216-1126440731
+3-618633838
+5158742247
+15311593013
+2161194439404
 MainWindow.xaml;UI\Consultas\cProyectos.xaml;UI\Registros\rProyectos.xaml;
 
-False
+True
 
