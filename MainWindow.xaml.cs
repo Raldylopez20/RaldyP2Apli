@@ -27,6 +27,17 @@ namespace RaldyP2Apli
             InitializeComponent();
         }
 
-        
+        private void rProyectosMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            rProyectos rProyectos = new rProyectos();
+            rProyectos.Show();
+        }
+
+        private void cProyectosMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            cProyectos cProyectos = new cProyectos();
+            cProyectos.Show();
+        }
+
     }
 }

@@ -8,32 +8,45 @@
         Title="Registro de Consultas" Height="450" Width="800">
     <Grid>
 
-<Grid>
-        <StackPanel Margin= "-120,20,-1,-1"  VerticalAlignment="Center" HorizontalAlignment="Center">
-                        
-            <!--Boton Buscar-->
-            <Button x:Name ="BuscarButton" Margin="680,-10,0,0" Width = "120" Height = "40" Content="   Buscar" />
-            <Image Source= "/Imagenes/Buscar.png" Width="30" Height= "30" Margin="610,-40,0,0"/>
-            
-            <!-- Filtro -->
-            <Label Content = "Filtro" Margin="130,-20,0,0"></Label>
-            <ComboBox x:Name= "FiltroComboBox" Width= "100" Height= "30" Margin="-370,-30,0,0"> 
-            <ComboBoxItem Content ="CiudadId"/>
-            <ComboBoxItem Content= "Nombre"/>
-            </ComboBox>
-            
-            <!-- Criterio -->
-            <Label Content= "Criterio:" Margin="380,-25,0,0"/>
-            <TextBox x:Name= "CriterioTextBox" Width="100" Height= "30" Margin="180,-30,0,0"/>
+        <StackPanel Orientation="Vertical" Margin="0,5,0,0" HorizontalAlignment="Center">
 
-            <DataGrid x:Name="Consulta" Height="300" Width="700" Margin="125,30,0,0" AutoGenerateColumns="False" IsReadOnly="True">
+            <StackPanel Orientation="Horizontal" Height="60">
+                
+
+                <StackPanel Margin="0,0,20,0" >
+                    <Label Content="Filtro:" />
+                    <ComboBox x:Name="FiltroComboBox" Width="95" Height="24" >
+                        <ComboBoxItem Content="Id"/>
+                        <ComboBoxItem Content="Descripción"/>
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel>
+                    <Label Content="Critero:"/>
+                    <TextBox x:Name="CriterioTextBox" Width="95" Height="24" Margin="0,0,5,0"/>
+
+                </StackPanel>
+
+                <Button x:Name="BuscarButton" Height="30" Width="100" Click="ConsultarButton_Click" Margin="30,0,0,0" >
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Source="/Imagenes/buscar.png" Width="25"  />
+                        <Label Content="Consultar" />
+                    </StackPanel>
+                </Button>
+
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Left" >
+                <DataGrid x:Name="DatosDataGrid" IsReadOnly="True" AutoGenerateColumns="False" AlternatingRowBackground="Gainsboro" TextBlock.TextAlignment="Center" Height="350" Width="605">
                     <DataGrid.Columns>
-
+                        <DataGridTextColumn Header="Proyecto Id" Binding="{Binding ProyectoId}"/>
+                        <DataGridTextColumn Header="Fecha" Binding="{Binding Fecha, StringFormat='dd/MM/yyyy'}"/>
+                        <DataGridTextColumn Header="Descripción" Binding="{Binding Descripcion}"/>
+                        <DataGridTextColumn Header="Tiempo Total" Binding="{Binding TiempoTotal}"/>
+                        <DataGridTextColumn Header="Detalle" Binding="{Binding Detalle}"/>
                     </DataGrid.Columns>
-            </DataGrid>       
-        </StackPanel>   
-    </Grid>
-
+                </DataGrid>
+            </StackPanel>
+        </StackPanel>
 
     </Grid>
 </Window>

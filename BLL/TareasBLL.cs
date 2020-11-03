@@ -7,18 +7,21 @@ using Microsoft.EntityFrameworkCore;
 using RaldyP2Apli.Dal;
 using RaldyP2Apli.Entidades;
 
-namespace SegundoParcial_JoseLuis.BLL
+namespace RaldyP2Apli.BLL
 {
     public class TareasBLL
     {
-        public static List<Tareas> GetTareas()
+        public static List<Tareas> GetList(Expression<Func<Tareas, bool>> criterio)
         {
-            List<Tareas> tareas = new List<Tareas>();
+
+            List<Tareas> lista = new List<Tareas>();
             Contexto contexto = new Contexto();
 
             try
             {
-                tareas = contexto.Tareas.ToList();
+                //obtener la lista y filtrarla segun el criterio recibido por parametro
+                lista = contexto.Tareas.Where(criterio).ToList();
+
             }
             catch (Exception)
             {
@@ -28,8 +31,7 @@ namespace SegundoParcial_JoseLuis.BLL
             {
                 contexto.Dispose();
             }
-
-            return tareas;
+            return lista;
         }
     }
 }

@@ -5,51 +5,117 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RaldyP2Apli.UI.Registros"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Registro de Proyectos" Height="650" Width="800">
     <Grid>
 
-       <!--Id-->
-            <Label Content = "Id" FontSize="15px" Margin="-390,125,1,1" FontFamily="SimSun-ExtB" FontStyle="Normal" Width="90"/>
-            <TextBox x:Name = "IdTextBox" Text ="{Binding Id}" Width="50" Height="25" Margin="-220,-25,0,0"/>
+        <StackPanel Margin= "46,-40,0,0"  VerticalAlignment="Center" HorizontalAlignment="Left"  Width="500" Height="650">
+            
+            <!--******************************ProyectoId******************************-->
+            <Label Content = "ProyectoId" FontSize="15px" Margin="-390,125,1,1" FontFamily="SimSun-ExtB" FontStyle="Normal" Width="90"/>
+            <TextBox x:Name = "ProyectoIdTextBox" Text ="{Binding ProyectoId}" Width="50" Height="25" Margin="-220,-25,0,0"/>
 
-            <!--Boton Buscar-->
+
+
+            <!--******************************Boton Buscar******************************-->
             <Button x:Name ="BuscarButton" Margin="210,-40,0,0" Width = "120" Height = "40" Content="     Buscar"  FontWeight="Bold"/>
-            <Image Source= "/Imagenes/Buscar.png" Width="30" Height= "30" Margin="140,-40,0,0"/>
+            <Image Source= "/imagenes/buscar.png" Width="30" Height= "30" Margin="140,-40,0,0"/>
+
+
+
+            <!--******************************Fecha******************************-->
+            <Label Content = "Fecha" FontSize="13.5px" Margin="-430,10,0,0" FontFamily="SimSun-ExtB" FontStyle="Normal" Width="48" Height="24"/>
+            <DatePicker x:Name = "FechaDatePicker" SelectedDate ="{Binding Fecha}" Width="160" Height="25" Margin="-110,-20,0,0"/>
+
+
+
+            <!--******************************Descripcion******************************-->
+            <Label Content = "Descripcion" FontSize="15px" Margin="-390,10,1,1" FontFamily="SimSun-ExtB" FontStyle="Normal" Width="93"/>
+            <TextBox x:Name = "DescripcionTextBox" Text ="{Binding Descripcion}" Width="160" Height="50" Margin="-110,-25,0,0"/>
+
 
             <StackPanel Orientation="Vertical" >
-                <GroupBox Header="Detalle"  Margin="0,5,0,0" >
+                <GroupBox Header="Detalle Moras"  Margin="0,5,0,0" >
                     <StackPanel>
-                                                
+                        
+
+
+                        <!--******************************Tipo Tarea******************************-->
+                        <Label Content = "Tipo Tarea" FontSize="15px" Margin="-390,10,1,1" FontFamily="SimSun-ExtB" FontStyle="Normal" Width="91"/>
+                        <ComboBox x:Name = "TareaIdComboBox" SelectedValue ="{Binding TareaId}" Width="120" Height="25" Margin="-350,-5,0,0"/>
+
+
+
+                        <!--******************************Tiempo(minutos)******************************-->
+                        <Label Content = "Requerimiento de la tarea"  FontSize="15px" Margin="-20,-60,1,1" FontFamily="SimSun-ExtB" FontStyle="Normal" Width="200" Height="25"/>
+                        <TextBox x:Name = "RequerimientoTextBox" Text ="{Binding Requerimiento}" Width="190" Height="25" Margin="-20,-25,0,0"/>
+
+
+
+
+                        <!--******************************Tiempo(minutos)******************************-->
+                        <Label Content = "Tiempo(minutos)"  FontSize="15px" Margin="300,-60,1,1" FontFamily="SimSun-ExtB" FontStyle="Normal" Width="121" Height="25"/>
+                        <TextBox x:Name = "TiempoTextBox" Text ="{Binding Cantidad}" Width="140" Height="25" Margin="330,-25,0,0"/>
+
+
+
+                        
                         <StackPanel Orientation="Horizontal">
-                            <!--Agregar Fila-->                            
+                            <!--**************************Agregar Fila******************************-->                            
                             <Button x:Name="AgregarFilaButton" Margin="10,10,0,0" >
                                 <StackPanel Orientation="Horizontal">
                                     <Image Source="/Imagenes/Mas.png" Height="25"/>
                                     <Label Content="Agregar fila" FontWeight="Bold"/>
                                 </StackPanel>
                             </Button>
-                            <!--Eliminar Fila-->
+
+
+                            <!--***************************Eliminar Fila******************************-->
                             <Button x:Name="EliminarFilaButton" Margin="220,10,0,0" >
                                 <StackPanel Orientation="Horizontal">
-                                    <Image Source="/Imagenes/Menos.png" Height="25"/>
+                                    <Image Source="/imagenes/Eliminar.png" Height="25"/>
                                     <Label Content="Eliminar fila" FontWeight="Bold"/>
                                 </StackPanel>
                             </Button>
                             
                         </StackPanel>
 
-                        <DataGrid x:Name="DetalleDataGrid"  IsReadOnly="true" Height="100" AutoGenerateColumns="False" 
-                        ItemsSource="{Binding Detalle}" Margin="0,10,0,0">
+                        <DataGrid x:Name="DetalleDataGrid"  IsReadOnly="true" Height="100" AutoGenerateColumns="False" ItemsSource="{Binding Detalle}" Margin="0,10,0,0">
                             <DataGrid.Columns>                                
-                                <DataGridTextColumn Header="        JugadorId     " Binding="{Binding JugadorId}"/>
-                                <DataGridTextColumn Header="        Nombre    " Binding="{Binding Nombre}"/>
-                                <DataGridTextColumn Header="          Posicion            " Binding="{Binding Posicion }"/>
-                                </DataGrid.Columns>
+                                <DataGridTextColumn Header="        TipoId     " Binding="{Binding TareaId}"/>
+                                <DataGridTextColumn Header="        Tipo Tarea    " Binding="{Binding TipoTarea}"/>
+                                <DataGridTextColumn Header="           Requerimiento            " Binding="{Binding Requerimiento }"/>
+                                <DataGridTextColumn Header="         Tiempo         " Binding="{Binding Tiempo}"/>
+                            </DataGrid.Columns>
                         </DataGrid>
                         
                     </StackPanel>
-                </GroupBox>               
+                </GroupBox>
+
+                <StackPanel Orientation="Horizontal">
+                    <!--***************************Tiempo****************************************-->
+                    <Label Content="Tiempo Total" Margin="340,15,0,0" FontSize="15px" FontFamily="SimSun-ExtB"/>
+                    <TextBox x:Name="TiempoTotalTextBox" Text= "{Binding Monto}" Height="25" Width="60" IsReadOnly="True" Margin="8,15,0,0"/>
+                </StackPanel>
             </StackPanel>
+
             
+
+            <!-- *******************************Boton Nuevo****************************************-->
+            <Button x:Name ="NuevoButton" Margin="-320,20,0,0" Width = "100" Height = "40" Content="        Nuevo"   FontWeight="Bold"/>
+            <Image Source= "/imagenes/Crear.png" Width="40" Height= "40" Margin="-380,-40,0,0"/>
+
+
+
+            <!-- *******************************Boton Guardar****************************************-->
+            <Button x:Name ="GuardarButton" Margin="-15,-40,0,0" Width = "100" Height = "40" Content="        Guardar"   FontWeight="Bold"/>
+            <Image Source= "/imagenes/guardar.png" Width="35" Height= "35" Margin="-75,-40,0,0"/>
+
+
+
+            <!--********************************Boton Eliminar****************************************-->
+            <Button x:Name ="EliminarButton" Margin="300,-40,0,0" Width = "100" Height = "40" Content="          Eliminar"   FontWeight="Bold"/>
+            <Image Source= "/imagenes/Eliminar.png" Width="40" Height= "40" Margin="240,-40,0,0"/>
+        </StackPanel>
+
     </Grid>
 </Window>

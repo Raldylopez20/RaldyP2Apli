@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SegundoParcial_JoseLuis.BLL
+namespace RaldyP2Apli.BLL
 {
     public class Utilidades
     {

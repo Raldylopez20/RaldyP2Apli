@@ -8,16 +8,25 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <StackPanel>
+         <!--— *******************************MENU ITEMS************************************-->
+
             <Menu Height = "20" VerticalAlignment = "Top" >
 
                  <MenuItem Header ="Registros" >
-                    <MenuItem x:Name = "Registro" Header = "Registro" ></MenuItem>
+                    <MenuItem x:Name = "Registro" Click="rProyectosMenuItem_Click" Header = "Registro" ></MenuItem>
                     </MenuItem>
 
                  <MenuItem Header = "Consultas" >            
-                    <MenuItem x:Name = "Consultas" Header = "Consultas" ></MenuItem>
+                    <MenuItem x:Name = "Consultas" Click="cProyectosMenuItem_Click" Header = "Consultas" ></MenuItem>
                     </MenuItem>
             </Menu> 
-        </StackPanel>               
+        </StackPanel>   
+
+         <!--**********************************MENU PRINCIPAL**********************************-->
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+        <Label Content="Menu Principal" FontWeight="Bold" Height="50" FontSize="36" HorizontalAlignment="Center" />            
+
+         </StackPanel>
     </Grid>
 </Window>
